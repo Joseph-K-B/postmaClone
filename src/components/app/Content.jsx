@@ -2,12 +2,12 @@ import React from 'react'
 import ReactJson from 'react-json-view'
 
 
-export default function Content({ id, title, body, userId }) {
+export default function Content({contents}) {
     return (
         <figure>
            <h1>Response</h1> 
         <figcaption>
-            <ReactJson src={id, title, body, userId} theme='monokai'/>
+            <ReactJson src={contents} theme='monokai'/>
             {/* <ul>
                 <li>{id}</li>
                 <li>{title}</li>

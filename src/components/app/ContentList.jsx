@@ -1,14 +1,11 @@
 import React from "react";
 import Content from './Content'
 
-export default function ContentList({ content }) {
-    const contentList = content.map(({ id, title, body, userId }) => (
-        <li key={`${id}`}>
+export default function ContentList({ contents }) {
+    const contentList = contents.map(({ content }) => (
+        <li key={`${content}`}>
             <Content
-            id={id}
-            title={title}
-            body = {body}
-            userId = {userId} />
+            content = {content} />
         </li>
     ));
     return <ul>{contentList}</ul>

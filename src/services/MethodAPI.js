@@ -3,7 +3,7 @@
 
 export const getMethod = async (url) => {
     const res = await fetch(`${url}`);
-    const getContent = await res.json();
-    console.log('GET', getContent);
-    return getContent;
+    const content = await res.json();
+    console.log('GET', content);
+    return content;
 }

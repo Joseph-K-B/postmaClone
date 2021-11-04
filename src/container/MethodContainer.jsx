@@ -7,7 +7,8 @@ import MethodControls from "../components/app/MethodControls";
 class ContentContainer extends Component {
     state = {
         loading: true,
-        content: [],
+				content: {},
+        contents: [],
 				url: ''
     };
 
@@ -23,12 +24,12 @@ class ContentContainer extends Component {
 		handleSubmit = async (e) => {
 			e.preventDefault();
 			this.setState({ loading: true });
-			const content = await getMethod(this.state.url);
-			this.setState({ content, loading: false });
+			const contents = await getMethod(this.state.url);
+			this.setState({ contents, loading: false });
 		};
 
     render() {
-        const { loading, content, url } = this.state;
+        const { loading, contents, url } = this.state;
         if(loading) return <h1>Loading...</h1>;
         return (
 					<>
@@ -36,8 +37,8 @@ class ContentContainer extends Component {
 						url = {url}
 						onUrlInput={this.handleUrlInput}
 						onSubmit={this.handleSubmit} />  
-						{/* <Content /> */}
-						<ContentList content={content} />
+						<Content contents={contents}/>
+						{/* <ContentList content={content} /> */}
           </>
         );
     }
