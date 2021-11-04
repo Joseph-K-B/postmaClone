@@ -1,28 +1,46 @@
-import React from "react";
-import MethodList from '../components/app/ContentList';
-import MethodControls from '../components/app/ContentControls';
+import React, {Component} from "react";
+import ContentList from '../components/app/ContentList';
+import Content from '../components/app/Content'
 import { getMethod } from "../services/MethodAPI";
+import MethodControls from "../components/app/MethodControls";
 
-class MethodContainer extends Component {
+class ContentContainer extends Component {
     state = {
         loading: true,
-        content: []
+        content: [],
+				url: ''
     };
 
     async componentDidMount() {
-        const content = await getMethod();
-        this.setState({ content, loading: false })
+        // const content = await getMethod();
+        this.setState({loading: false })
     };
 
+		handleUrlInput = (e) => {
+			this.setState({ url: e.target.value });
+		};
+
+		handleSubmit = async (e) => {
+			e.preventDefault();
+			this.setState({ loading: true });
+			const content = await getMethod(this.state.url);
+			this.setState({ content, loading: false });
+		};
+
     render() {
-        const { loading, content } = this.state;
+        const { loading, content, url } = this.state;
         if(loading) return <h1>Loading...</h1>;
         return (
-            <>
-                <MethodList content={content} />
-            </>
+					<>
+						<MethodControls 
+						url = {url}
+						onUrlInput={this.handleUrlInput}
+						onSubmit={this.handleSubmit} />  
+						{/* <Content /> */}
+						<ContentList content={content} />
+          </>
         );
     }
 }
 
-export default MethodContainer
+export default ContentContainer
