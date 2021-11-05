@@ -1,15 +1,15 @@
 import React, {Component} from "react";
 import Content from '../components/app/Content'
-import { getMethod } from "../services/MethodAPI";
+import { getMethod, postMethod, patchMethod, deleteMethod  } from "../services/MethodAPI";
 import MethodControls from "../components/app/MethodControls";
 
 class ContentContainer extends Component {
     state = {
         loading: true,
         contents: [],
-				url: '',
-				method: '',
-				inputField: '',
+		url: '',
+		method: '',
+		inputField: '',
     };
 
     async componentDidMount() {
@@ -37,19 +37,19 @@ class ContentContainer extends Component {
 			const contents = await getMethod(url)
 			this.setState({ contents, loading: false })
 			} else if (method ==='POST') {
-				const contents = await postMethod(url)
+				const contents = await postMethod(url, inputField)
+			this.setState({ inputField, contents, loading: false })
+			} else if (method ==='PATCH') {
+				const contents = await patchMethod(url)
 			this.setState({ contents, loading: false })
-			// } else if (method ==='PATCH') {
-			// 	const contents = await patchMethod(url)
-			// this.setState({ contents, loading: false })
-			// } else (method ==='DELETE') 
-			// 	const contents = await deleteMethod(url)
-			// this.setState({ contents, loading: false })
+			} else if (method ==='DELETE') {
+				const contents = await deleteMethod(url)
+			this.setState({ contents, loading: false })}
 			
-			console.log('METHOD', method)
+			console.log('METHOD', method, inputField)
 		};
 
-	}
+	
     render() {
         const { loading, contents, url } = this.state;
         if(loading) return <h1>Loading...</h1>;
@@ -57,8 +57,9 @@ class ContentContainer extends Component {
 					<>
 						<MethodControls 
 						url = {url}
-						onRadioInput={this.handleRadioInput}
 						onUrlInput={this.handleUrlInput}
+						onRadioInput={this.handleRadioInput}
+						onObjectInput={this.handleInputField}
 						onSubmit={this.handleSubmit} />  
 						<Content contents={contents}/>
           </>

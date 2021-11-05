@@ -2,9 +2,10 @@ import React from 'react';
 
 export default function MethodControls({
     url,
-    method,
+    inputField,
     onUrlInput,
     onRadioInput,
+    onObjectInput,
     onSubmit
 }) {
     return(
@@ -49,7 +50,13 @@ export default function MethodControls({
                 onChange={onRadioInput}
             />
             <button aria-label='make-request'>Go</button>
-            <textarea></textarea>
+            <textarea
+                id='object'
+                name='object'
+                type='text'
+                value={inputField}
+                onChange={onObjectInput}
+            ></textarea>
         </form>
     )
 }
