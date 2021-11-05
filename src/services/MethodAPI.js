@@ -6,32 +6,21 @@ export const getMethod = async (url) => {
 };
 
 export const postMethod = async (url, inputField ) => {
-    const input = {body: `${inputField}`}
     const res = await fetch(`${url}`, {
         method: 'POST',
-        body: JSON.stringify(input),
-        // body: JSON.stringify({
-        //     title: 'foo',
-        //     body: 'bar',
-        //     userId: 1,
-        // }),
+        body: inputField,
         headers: {
             'Content-type' : 'application/json; charset=UTF-8',
         },
     });
     const content = await res.json();
-    console.log('POST', content);
     return content
 };
 
 export const patchMethod =  async(url, inputField) => {
-    const input = {inputField: {body: `${inputField}`}}
     const res = await fetch(`${url}`, {
         method: 'PATCH',
-        body: JSON.stringify(input),
-        // body: JSON.stringify({
-        //     title: 'foo',
-        //   }),
+        body: inputField,
         headers: {
             'Content-type' : 'application/json; charset=UTF-8'
         },

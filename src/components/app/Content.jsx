@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactJson from 'react-json-view'
-import css from '../../styles/response.css'
+
 
 
 export default function Content({contents}) {

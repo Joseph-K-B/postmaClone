@@ -48,13 +48,13 @@ class ContentContainer extends Component {
 				const contents = await postMethod(url, inputField)
 			this.setState({ contents, loading: false })
 			} else if (method ==='PATCH') {
-				const contents = await patchMethod(url, JSON.stringify(inputField))
+				const contents = await patchMethod(url, inputField)
 			this.setState({ contents, loading: false })
 			} else if (method ==='DELETE') {
 				const contents = await deleteMethod(url)
 			this.setState({ contents, loading: false })}
 			
-			console.log('METHOD', method, inputField)
+			console.log('METHOD', method, 'INPUT FIELD', inputField)
 		};
 
 	
@@ -66,7 +66,8 @@ class ContentContainer extends Component {
 			<>
 				<MethodControls
 				url = {url}
-				inputField = {inputField} 
+				inputField = {inputField}
+				methodList = {methodList} 
 				onUrlInput={this.handleUrlInput}
 				onRadioInput={this.handleRadioInput}
 				onObjectInput={this.handleInputField}
