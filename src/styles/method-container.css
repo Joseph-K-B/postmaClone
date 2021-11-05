@@ -1,0 +1,16 @@
+html
+{
+background-color: #77AA88;
+}
+
+.form
+{
+    display: flex;
+    height: 1000;
+}
+
+.react-json
+{
+    height: 500;
+    width: 500;
+}

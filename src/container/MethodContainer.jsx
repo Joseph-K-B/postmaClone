@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Content from '../components/app/Content'
 import { getMethod, postMethod, patchMethod, deleteMethod  } from "../services/MethodAPI";
 import MethodControls from "../components/app/MethodControls";
+import '../styles/method-container.css';
 
 class ContentContainer extends Component {
     state = {
@@ -51,12 +52,13 @@ class ContentContainer extends Component {
 
 	
     render() {
-        const { loading, contents, url } = this.state;
+        const { loading, contents, url, inputField } = this.state;
         if(loading) return <h1>Loading...</h1>;
         return (
 					<>
-						<MethodControls 
+						<MethodControls
 						url = {url}
+						inputField = {inputField} 
 						onUrlInput={this.handleUrlInput}
 						onRadioInput={this.handleRadioInput}
 						onObjectInput={this.handleInputField}

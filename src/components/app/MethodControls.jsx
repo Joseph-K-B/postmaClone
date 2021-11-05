@@ -1,4 +1,5 @@
 import React from 'react';
+// import '../../styles/method-controls.css'
 
 export default function MethodControls({
     url,
@@ -9,7 +10,7 @@ export default function MethodControls({
     onSubmit
 }) {
     return(
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className='form'>
             <label htmlFor='url'>Make an API call</label>
             <input 
                 id='url'
@@ -17,7 +18,9 @@ export default function MethodControls({
                 type='text'
                 value={url}
                 onChange={onUrlInput}
+                className='url-input'
             />
+            <div className='radio-div'>
             <label htmlFor='GET'>GET</label>
             <input 
                 type='radio' 
@@ -25,6 +28,7 @@ export default function MethodControls({
                 name='GET' 
                 value='GET' 
                 onChange={onRadioInput}
+                className='radio-input'
             />
             <label htmlFor='POST'>POST</label>
             <input 
@@ -32,7 +36,9 @@ export default function MethodControls({
                 id='POST' 
                 name='POST' 
                 value='POST' 
-                onChange={onRadioInput}/>
+                onChange={onRadioInput}
+                className='radio-input'
+                />
             <label htmlFor='PATCH'>PATCH</label>
             <input 
                 type='radio' 
@@ -40,6 +46,7 @@ export default function MethodControls({
                 name='PATCH' 
                 value='PATCH' 
                 onChange={onRadioInput}
+                className='radio-input'
             />
             <label htmlFor='DELETE'>DELETE</label>
             <input 
@@ -48,14 +55,18 @@ export default function MethodControls({
                 name='DELETE' 
                 value='DELETE'
                 onChange={onRadioInput}
+                className='radio-input'
             />
+            </div>
             <button aria-label='make-request'>Go</button>
+            <label htmlFor= 'object'></label>
             <textarea
                 id='object'
                 name='object'
                 type='text'
                 value={inputField}
                 onChange={onObjectInput}
+                className='object-input'
             ></textarea>
         </form>
     )
