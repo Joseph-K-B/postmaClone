@@ -22,7 +22,7 @@ export default function MethodControls({
                 type='radio' 
                 id='GET' 
                 name='GET' 
-                value={method} 
+                value='GET' 
                 onChange={onRadioInput}
             />
             <label htmlFor='POST'>POST</label>
@@ -30,15 +30,14 @@ export default function MethodControls({
                 type='radio' 
                 id='POST' 
                 name='POST' 
-                // value='POST' 
-                value={method} 
+                value='POST' 
                 onChange={onRadioInput}/>
             <label htmlFor='PATCH'>PATCH</label>
             <input 
                 type='radio' 
                 id='PATCH' 
                 name='PATCH' 
-                value={method} 
+                value='PATCH' 
                 onChange={onRadioInput}
             />
             <label htmlFor='DELETE'>DELETE</label>
@@ -46,8 +45,7 @@ export default function MethodControls({
                 type='radio' 
                 id='DELETE' 
                 name='DELETE' 
-                // value='DELETE' 
-                value={method} 
+                value='DELETE'
                 onChange={onRadioInput}
             />
             <button aria-label='make-request'>Go</button>

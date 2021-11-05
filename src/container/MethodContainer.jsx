@@ -8,7 +8,7 @@ class ContentContainer extends Component {
         loading: true,
         contents: [],
 				url: '',
-				radio: '',
+				method: '',
 				inputField: '',
     };
 
@@ -22,7 +22,7 @@ class ContentContainer extends Component {
 		};
 
 		handleRadioInput = (e) => {
-			this.setState({ radio: e.target.value });
+			this.setState({ method: e.target.value });
 		}
 
 		handleInputField = (e) => {
@@ -30,13 +30,26 @@ class ContentContainer extends Component {
 		}
 
 		handleSubmit = async (e) => {
-			const {url, radio, inputField} = this.state
+			const {url, method, inputField} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
-			const contents = await `${radio}`(url);
-			this.setState({ contents, loading: false });
+			if (method === 'GET') {
+			const contents = await getMethod(url)
+			this.setState({ contents, loading: false })
+			} else if (method ==='POST') {
+				const contents = await postMethod(url)
+			this.setState({ contents, loading: false })
+			// } else if (method ==='PATCH') {
+			// 	const contents = await patchMethod(url)
+			// this.setState({ contents, loading: false })
+			// } else (method ==='DELETE') 
+			// 	const contents = await deleteMethod(url)
+			// this.setState({ contents, loading: false })
+			
+			console.log('METHOD', method)
 		};
 
+	}
     render() {
         const { loading, contents, url } = this.state;
         if(loading) return <h1>Loading...</h1>;
@@ -44,6 +57,7 @@ class ContentContainer extends Component {
 					<>
 						<MethodControls 
 						url = {url}
+						onRadioInput={this.handleRadioInput}
 						onUrlInput={this.handleUrlInput}
 						onSubmit={this.handleSubmit} />  
 						<Content contents={contents}/>
