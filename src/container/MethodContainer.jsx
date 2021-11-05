@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import ContentList from '../components/app/ContentList';
 import Content from '../components/app/Content'
 import { getMethod } from "../services/MethodAPI";
 import MethodControls from "../components/app/MethodControls";
@@ -38,7 +37,6 @@ class ContentContainer extends Component {
 						onUrlInput={this.handleUrlInput}
 						onSubmit={this.handleSubmit} />  
 						<Content contents={contents}/>
-						{/* <ContentList contents={contents} /> */}
           </>
         );
     }
