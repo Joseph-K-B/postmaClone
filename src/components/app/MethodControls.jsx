@@ -67,6 +67,7 @@ export default function MethodControls({
                 value={inputField}
                 onChange={onObjectInput}
                 className='object-input'
+                placeholder='JSON Format'
             ></textarea>
         </form>
     )

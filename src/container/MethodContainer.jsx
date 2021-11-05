@@ -3,10 +3,12 @@ import Content from '../components/app/Content'
 import { getMethod, postMethod, patchMethod, deleteMethod  } from "../services/MethodAPI";
 import MethodControls from "../components/app/MethodControls";
 import '../styles/method-container.css';
+import MethodList from "../components/MethodList";
 
 class ContentContainer extends Component {
     state = {
         loading: true,
+		methodList: [],
         contents: [],
 		url: '',
 		method: '',
@@ -31,15 +33,15 @@ class ContentContainer extends Component {
 		}
 
 		handleSubmit = async (e) => {
-			const {url, method, inputField} = this.state
+			const {url, method, inputField, methodList} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
 			if (method === 'GET') {
 			const contents = await getMethod(url)
-			this.setState({ contents, loading: false })
+			this.setState({ methodList, contents, loading: false })
 			} else if (method ==='POST') {
 				const contents = await postMethod(url, inputField)
-			this.setState({ inputField, contents, loading: false })
+			this.setState({ contents, loading: false })
 			} else if (method ==='PATCH') {
 				const contents = await patchMethod(url)
 			this.setState({ contents, loading: false })
@@ -52,21 +54,24 @@ class ContentContainer extends Component {
 
 	
     render() {
-        const { loading, contents, url, inputField } = this.state;
-        if(loading) return <h1>Loading...</h1>;
-        return (
-					<>
-						<MethodControls
-						url = {url}
-						inputField = {inputField} 
-						onUrlInput={this.handleUrlInput}
-						onRadioInput={this.handleRadioInput}
-						onObjectInput={this.handleInputField}
-						onSubmit={this.handleSubmit} />  
-						<Content contents={contents}/>
+        const { loading, contents, url, inputField, methodList } = this.state;
+        if(loading) return <h1>Loading...</h1> 
+		
+			return (
+			<>
+				<MethodControls
+				url = {url}
+				inputField = {inputField} 
+				onUrlInput={this.handleUrlInput}
+				onRadioInput={this.handleRadioInput}
+				onObjectInput={this.handleInputField}
+				onSubmit={this.handleSubmit} />
+				{/* <MethodList />   */}
+				<Content contents={contents}/>
           </>
         );
+		}
     }
-}
+
 
 export default ContentContainer
