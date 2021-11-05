@@ -3,7 +3,7 @@ import React from 'react';
 export default function Method({ method, url }) {
     return (
         <>
-            <h1>{method}</h1>
+            <h3>{method}</h3>
             <p>{url}</p>
         </>
     )

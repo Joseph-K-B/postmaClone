@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import Content from '../components/app/Content'
 import { getMethod, postMethod, patchMethod, deleteMethod  } from "../services/MethodAPI";
 import MethodControls from "../components/app/MethodControls";
-import '../styles/method-container.css';
-import MethodList from "../components/MethodList";
+import css from '../styles/method-container.css';
+import MethodList from '../components/app/MethodList'
 
 class ContentContainer extends Component {
     state = {
@@ -32,18 +32,23 @@ class ContentContainer extends Component {
 			this.setState({ inputField: e.target.value });
 		}
 
+		handleHistory = (e) => {
+			const { method, url } = this.state
+			this.setState({methodList: e.methodList.push({method, url})})
+		}
+
 		handleSubmit = async (e) => {
 			const {url, method, inputField, methodList} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
 			if (method === 'GET') {
 			const contents = await getMethod(url)
-			this.setState({ methodList, contents, loading: false })
+			this.setState({contents, loading: false, })
 			} else if (method ==='POST') {
 				const contents = await postMethod(url, inputField)
 			this.setState({ contents, loading: false })
 			} else if (method ==='PATCH') {
-				const contents = await patchMethod(url, inputField)
+				const contents = await patchMethod(url, JSON.stringify(inputField))
 			this.setState({ contents, loading: false })
 			} else if (method ==='DELETE') {
 				const contents = await deleteMethod(url)
@@ -66,8 +71,10 @@ class ContentContainer extends Component {
 				onRadioInput={this.handleRadioInput}
 				onObjectInput={this.handleInputField}
 				onSubmit={this.handleSubmit} />
-				{/* <MethodList />   */}
-				<Content contents={contents}/>
+				<section>
+					<MethodList />  
+					<Content contents={contents}/>
+				</section>
           </>
         );
 		}

@@ -1,16 +1,34 @@
 html
 {
-background-color: #77AA88;
+    background-color: #77AA88;
 }
 
-.form
+
+form
 {
-    display: flex;
-    height: 1000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    border: 10%;
+    padding: 1%;
 }
 
-.react-json
+header
 {
-    height: 500;
-    width: 500;
+    height: 4rem;
+    background-color: slategray;
 }
+
+figure
+{
+    width: 30em;
+}
+
+section
+{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;        
+}
+

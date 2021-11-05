@@ -8,7 +8,7 @@ export const getMethod = async (url) => {
 export const postMethod = async (url, inputField ) => {
     const res = await fetch(`${url}`, {
         method: 'POST',
-        body: JSON.stringify(),
+        body: JSON.stringify(`${inputField}`),
         // body: JSON.stringify({
         //     title: 'foo',
         //     body: 'bar',
@@ -26,7 +26,7 @@ export const postMethod = async (url, inputField ) => {
 export const patchMethod =  async(url, inputField) => {
     const res = await fetch(`${url}`, {
         method: 'PATCH',
-        body: JSON.stringify(),
+        body: JSON.stringify(`${inputField}`),
         // body: JSON.stringify({
         //     title: 'foo',
         //   }),

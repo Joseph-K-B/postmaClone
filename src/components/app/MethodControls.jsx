@@ -1,10 +1,11 @@
 import React from 'react';
-// import '../../styles/method-controls.css'
+// import css from '../../styles/method-controls.css'
 
 export default function MethodControls({
     url,
     inputField,
     onUrlInput,
+    // onHistoryInput,
     onRadioInput,
     onObjectInput,
     onSubmit
