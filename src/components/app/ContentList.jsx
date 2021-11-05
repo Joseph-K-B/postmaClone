@@ -1,12 +1,14 @@
 import React from "react";
 import Content from './Content'
+import ReactJson from 'react-json-view'
 
 export default function ContentList({ contents }) {
-    const contentList = contents.map(({ content }) => (
-        <li key={`${content}`}>
-            <Content
-            content = {content} />
-        </li>
+    const contentList = contents.map(({ contents, id }) => (
+        <ReactJson src={contents} key={`${id}`} theme='monokai'/>
+        // <li key={`${id}`}>
+        //     <Content
+        //     content = {content} />
+        // </li>
     ));
-    return <ul>{contentList}</ul>
+    return <figure>{contentList}</figure>
 }

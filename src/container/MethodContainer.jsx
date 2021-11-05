@@ -38,7 +38,7 @@ class ContentContainer extends Component {
 						onUrlInput={this.handleUrlInput}
 						onSubmit={this.handleSubmit} />  
 						<Content contents={contents}/>
-						{/* <ContentList content={content} /> */}
+						{/* <ContentList contents={contents} /> */}
           </>
         );
     }
