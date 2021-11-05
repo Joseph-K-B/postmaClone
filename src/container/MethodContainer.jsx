@@ -43,7 +43,7 @@ class ContentContainer extends Component {
 				const contents = await postMethod(url, inputField)
 			this.setState({ contents, loading: false })
 			} else if (method ==='PATCH') {
-				const contents = await patchMethod(url)
+				const contents = await patchMethod(url, inputField)
 			this.setState({ contents, loading: false })
 			} else if (method ==='DELETE') {
 				const contents = await deleteMethod(url)
