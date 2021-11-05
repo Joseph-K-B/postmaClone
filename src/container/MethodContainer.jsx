@@ -6,9 +6,10 @@ import MethodControls from "../components/app/MethodControls";
 class ContentContainer extends Component {
     state = {
         loading: true,
-				content: {},
         contents: [],
-				url: ''
+				url: '',
+				radio: '',
+				inputField: '',
     };
 
     async componentDidMount() {
@@ -20,10 +21,19 @@ class ContentContainer extends Component {
 			this.setState({ url: e.target.value });
 		};
 
+		handleRadioInput = (e) => {
+			this.setState({ radio: e.target.value });
+		}
+
+		handleInputField = (e) => {
+			this.setState({ inputField: e.target.value });
+		}
+
 		handleSubmit = async (e) => {
+			const {url, radio, inputField} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
-			const contents = await getMethod(this.state.url);
+			const contents = await `${radio}`(url);
 			this.setState({ contents, loading: false });
 		};
 
