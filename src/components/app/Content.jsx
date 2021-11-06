@@ -3,7 +3,7 @@ import ReactJson from 'react-json-view'
 
 
 
-export default function Content({contents}) {
+function Content({contents}) {
     return (
         <figure>
            <h1>Response</h1> 
@@ -13,3 +13,5 @@ export default function Content({contents}) {
         </figure>
     )
 }
+
+export default Content

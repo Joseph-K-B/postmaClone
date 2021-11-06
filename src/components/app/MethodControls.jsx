@@ -1,7 +1,7 @@
 import React from 'react';
 // import css from '../../styles/method-controls.css'
 
-export default function MethodControls({
+function MethodControls({
     url,
     inputField,
     onUrlInput,
@@ -73,3 +73,5 @@ export default function MethodControls({
         </form>
     )
 }
+
+export default MethodControls

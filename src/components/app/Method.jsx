@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Method({ method, url }) {
+function Method({ method, url }) {
     return (
         <>
             <h3>{method}</h3>
@@ -8,3 +8,4 @@ export default function Method({ method, url }) {
         </>
     )
 }
+export default Method

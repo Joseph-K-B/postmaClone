@@ -2,7 +2,7 @@ import React from "react";
 import Method from "./Method";
 
 
-export default function MethodList({ methodList, onMethodInput }) { 
+function MethodList({ methodList, onMethodInput }) { 
     if(methodList === undefined) {
         return <p>Waiting for request</p>
     } else {
@@ -16,9 +16,7 @@ export default function MethodList({ methodList, onMethodInput }) {
                 />
             </li>
         })
-        // if(methodList.map === undefined) {
-        //     return <p>Waiting for request</p>
-        // } else {
     return <ul aria-label='method-list'>{methods}</ul>}
     }
-// }
+    
+export default MethodList
