@@ -43,17 +43,20 @@ class ContentContainer extends Component {
 			this.setState({ loading: true });
 			if (method === 'GET') {
 			const contents = await getMethod(url)
-			this.setState({ methodList: methodList.push(method, url), contents, loading: false, })
+			this.setState({ methodList: methodList.push({method, url}), contents, loading: false, })
 			console.log('METHODLIST', methodList)
 			} else if (method ==='POST') {
 				const contents = await postMethod(url, inputField)
-			this.setState({ methodList, contents, loading: false })
+			this.setState({ methodList: methodList.push({method, url}), contents, loading: false })
+			console.log('METHODLIST', methodList)
 			} else if (method ==='PATCH') {
 				const contents = await patchMethod(url, inputField)
-			this.setState({ methodList, contents, loading: false })
+			this.setState({ methodList: methodList.push({method, url}), contents, loading: false })
+			console.log('METHODLIST', methodList)
 			} else if (method ==='DELETE') {
 				const contents = await deleteMethod(url)
-			this.setState({ contents, loading: false })}
+			this.setState({ methodList: methodList.push({method, url}), contents, loading: false })
+			console.log('METHODLIST', methodList)}
 			
 			console.log('METHOD', method, 'INPUT FIELD', inputField)
 		};
@@ -75,6 +78,7 @@ class ContentContainer extends Component {
 				onSubmit={this.handleHistory}
 				onSubmit={this.handleSubmit} />
 				<section>
+				
 					<MethodList />  
 					<Content contents={contents}/>
 				</section>
