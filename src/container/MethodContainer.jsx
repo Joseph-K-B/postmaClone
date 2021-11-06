@@ -32,10 +32,10 @@ class ContentContainer extends Component {
 			this.setState({ inputField: e.target.value });
 		}
 
-		handleHistory = (e) => {
-			const { method, url } = this.state
-			this.setState({methodList: e.methodList.push({method, url})})
-		}
+		// handleHistory = (e) => {
+		// 	const { method, url, methodList } = this.state
+		// 	this.setState({ methodList: e.methodList.value })
+		// }
 
 		handleSubmit = async (e) => {
 			const {url, method, inputField, methodList} = this.state
@@ -43,13 +43,14 @@ class ContentContainer extends Component {
 			this.setState({ loading: true });
 			if (method === 'GET') {
 			const contents = await getMethod(url)
-			this.setState({contents, loading: false, })
+			this.setState({ methodList: methodList.push(method, url), contents, loading: false, })
+			console.log('METHODLIST', methodList)
 			} else if (method ==='POST') {
 				const contents = await postMethod(url, inputField)
-			this.setState({ contents, loading: false })
+			this.setState({ methodList, contents, loading: false })
 			} else if (method ==='PATCH') {
 				const contents = await patchMethod(url, inputField)
-			this.setState({ contents, loading: false })
+			this.setState({ methodList, contents, loading: false })
 			} else if (method ==='DELETE') {
 				const contents = await deleteMethod(url)
 			this.setState({ contents, loading: false })}
@@ -71,6 +72,7 @@ class ContentContainer extends Component {
 				onUrlInput={this.handleUrlInput}
 				onRadioInput={this.handleRadioInput}
 				onObjectInput={this.handleInputField}
+				onSubmit={this.handleHistory}
 				onSubmit={this.handleSubmit} />
 				<section>
 					<MethodList />  
