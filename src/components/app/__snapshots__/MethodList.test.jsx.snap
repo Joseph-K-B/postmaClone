@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders list of API calls made should display initial message of please make request 1`] = `[Function]`;

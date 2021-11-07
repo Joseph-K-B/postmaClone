@@ -10,11 +10,11 @@ describe('should render entire content of container', () => {
         );
         expect(MethodContainer).toMatchSnapshot();
 
-        // const urlInput = await screen.findAllByLabelText('url');
+        // const urlInput = await screen.findAllByLabelText('Make an API call');
         // userEvent.type(urlInput, 'https://jsonplaceholder.typicode.com/posts/1')
 
         // const methodInput = await screen.findAllByLabelText('GET');
-        // userEvent.click(methodInput, 'GET');
+        // userEvent.selectOptions(methodInput, 'GET');
 
         // const submitButton = await screen.findByRole('button', {
         //     name: 'make-request'
@@ -23,7 +23,7 @@ describe('should render entire content of container', () => {
         // userEvent.click(submitButton);
 
         // return waitFor(() => {
-        //     const content = screen.findAllByLabelText('userId', {
+        //     const content = screen.getAllByText('userId', {
         //         exact: false
         //     });
 
