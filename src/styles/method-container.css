@@ -22,13 +22,14 @@ header
 
 figure
 {
-    width: 30em;
+    width: 40rem;
 }
 
 section
 {
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;        
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    align-items: start;        
 }
 

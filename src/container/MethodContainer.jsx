@@ -15,7 +15,7 @@ class ContentContainer extends Component {
 		inputField: '',
     };
 
-    async componentDidMount() {
+ 		componentDidMount() {
         // const content = await getMethod();
         this.setState({loading: false })
     };
@@ -32,9 +32,9 @@ class ContentContainer extends Component {
 			this.setState({ inputField: e.target.value });
 		}
 
-		// handleHistory = (e) => {
+		// handleHistory = () => {
 		// 	const { method, url, methodList } = this.state
-		// 	this.setState({ methodList: e.methodList.value })
+		// 	this.setState({ methodList: methodList.push({method, url}) })
 		// }
 
 		handleSubmit = async (e) => {
@@ -45,31 +45,33 @@ class ContentContainer extends Component {
 			const contents = await getMethod(url)
 			this.setState({ 
 				methodList: methodList.push({method, url}), 
-				contents, 
 				loading: false, 
+				contents, 
 			})
 			console.log('METHODLIST', methodList)
 			} else if (method ==='POST') {
 				const contents = await postMethod(url, inputField)
 			this.setState({ 
 				methodList: methodList.push({method, url}), 
+				loading: false, 
 				contents, 
-				loading: false 
 			})
 			console.log('METHODLIST', methodList)
 			} else if (method ==='PATCH') {
 				const contents = await patchMethod(url, inputField)
 			this.setState({ 
 				methodList: methodList.push({method, url}), 
+				loading: false, 
 				contents, 
-				loading: false })
+			})
 			console.log('METHODLIST', methodList)
 			} else if (method ==='DELETE') {
 				const contents = await deleteMethod(url)
 			this.setState({ 
 				methodList: methodList.push({method, url}), 
+				loading: false, 
 				contents, 
-				loading: false })
+			})
 			console.log('METHODLIST', methodList)
 			}
 		};
@@ -77,8 +79,7 @@ class ContentContainer extends Component {
 	
     render() {
         const { loading, contents, url, inputField, methodList } = this.state;
-        if(loading) return <h1>Loading...</h1> 
-		
+        if(loading) return <h1>Loading...</h1>		
 			return (
 			<>
 				<MethodControls
@@ -90,8 +91,7 @@ class ContentContainer extends Component {
 				onObjectInput={this.handleInputField}
 				onSubmit={this.handleHistory}
 				onSubmit={this.handleSubmit} />
-				<section>
-				
+				<section>				
 					<MethodList />  
 					<Content contents={contents}/>
 				</section>
@@ -100,5 +100,46 @@ class ContentContainer extends Component {
 		}
     }
 
+		// render() {
+		// 	const { loading, contents, url, inputField, methodList } = this.state;
+		// 	if(loading) {
+		// 		return <h1>Loading...</h1>
+		// 	} else if (methodList === undefined) {
+		// 		return (
+		// 			<>
+		// 		<MethodControls
+		// 		url = {url}
+		// 		inputField = {inputField}
+		// 		methodList = {methodList} 
+		// 		onUrlInput={this.handleUrlInput}
+		// 		onRadioInput={this.handleRadioInput}
+		// 		onObjectInput={this.handleInputField}
+		// 		onSubmit={this.handleSubmit, this.handleHistory} />
+		// 		<section>				
+		// 			<Content contents={contents}/>
+		// 		</section>
+        //   </>
+		// 		)
 
-export default ContentContainer
+		// 	} else 
+		// 		return (<>
+		// 			<MethodControls
+		// 			url = {url}
+		// 			inputField = {inputField}
+		// 			methodList = {methodList} 
+		// 			onUrlInput={this.handleUrlInput}
+		// 			onRadioInput={this.handleRadioInput}
+		// 			onObjectInput={this.handleInputField}
+		// 			onSubmit={this.handleSubmit, this.handleHistory} />
+		// 			<section>
+		// 				{/* <MethodList	/>			 */}
+		// 				<Content contents={contents}/>
+		// 			</section>
+		// 	  </>
+		// 	  )
+		// 	}
+		// }
+		
+
+
+export default ContentContainer;

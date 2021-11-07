@@ -5,7 +5,6 @@ function MethodControls({
     url,
     inputField,
     onUrlInput,
-    // onHistoryInput,
     onRadioInput,
     onObjectInput,
     onSubmit
