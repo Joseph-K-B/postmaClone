@@ -3,7 +3,7 @@ import ReactJson from 'react-json-view'
 
 
 
-function Content({contents}) {
+function Content({ contents }) {
     return (
         <figure>
            <h1>Response</h1> 

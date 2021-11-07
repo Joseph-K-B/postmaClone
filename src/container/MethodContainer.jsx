@@ -8,7 +8,7 @@ import MethodList from '../components/app/MethodList'
 class ContentContainer extends Component {
     state = {
         loading: true,
-		methodList: [{'History': 'Your history is empty'}],
+		methodList: [],
         contents: [],
 		url: '',
 		method: '',
@@ -48,6 +48,7 @@ class ContentContainer extends Component {
 				loading: false, 
 				contents, 
 			})
+			localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			console.log('METHODLIST', methodList)
 			} else if (method ==='POST') {
 				const contents = await postMethod(url, inputField)
@@ -56,6 +57,7 @@ class ContentContainer extends Component {
 				loading: false, 
 				contents, 
 			})
+			localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			console.log('METHODLIST', methodList)
 			} else if (method ==='PATCH') {
 				const contents = await patchMethod(url, inputField)
@@ -64,6 +66,7 @@ class ContentContainer extends Component {
 				loading: false, 
 				contents, 
 			})
+			localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			console.log('METHODLIST', methodList)
 			} else if (method ==='DELETE') {
 				const contents = await deleteMethod(url)
@@ -72,6 +75,7 @@ class ContentContainer extends Component {
 				loading: false, 
 				contents, 
 			})
+			localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			console.log('METHODLIST', methodList)
 			}
 		};
