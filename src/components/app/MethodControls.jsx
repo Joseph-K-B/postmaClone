@@ -1,5 +1,5 @@
 import React from 'react';
-// import css from '../../styles/method-controls.css'
+// import css from '../../styles/method-container.css'
 
 function MethodControls({
     url,
@@ -21,7 +21,6 @@ function MethodControls({
                 className='url-input'
             />
             <div className='radio-div'>
-            <label htmlFor='GET'>GET</label>
             <input 
                 type='radio' 
                 id='GET' 
@@ -30,7 +29,7 @@ function MethodControls({
                 onChange={onRadioInput}
                 className='radio-input'
             />
-            <label htmlFor='POST'>POST</label>
+            <label htmlFor='GET'>GET</label>
             <input 
                 type='radio' 
                 id='POST' 
@@ -39,7 +38,7 @@ function MethodControls({
                 onChange={onRadioInput}
                 className='radio-input'
                 />
-            <label htmlFor='PATCH'>PATCH</label>
+            <label htmlFor='POST'>POST</label>
             <input 
                 type='radio' 
                 id='PATCH' 
@@ -48,7 +47,7 @@ function MethodControls({
                 onChange={onRadioInput}
                 className='radio-input'
             />
-            <label htmlFor='DELETE'>DELETE</label>
+            <label htmlFor='PATCH'>PATCH</label>
             <input 
                 type='radio' 
                 id='DELETE' 
@@ -57,6 +56,7 @@ function MethodControls({
                 onChange={onRadioInput}
                 className='radio-input'
             />
+            <label htmlFor='DELETE'>DELETE</label>
             </div>
             <button aria-label='make-request'>Go</button>
             <label htmlFor= 'object'></label>
@@ -67,7 +67,7 @@ function MethodControls({
                 value={inputField}
                 onChange={onObjectInput}
                 className='object-input'
-                placeholder='JSON Format'
+                placeholder='Double quotes for keys & values'
             ></textarea>
         </form>
     )

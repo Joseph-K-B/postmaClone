@@ -8,7 +8,7 @@ import MethodList from '../components/app/MethodList'
 class ContentContainer extends Component {
     state = {
         loading: true,
-		methodList: [],
+		methodList: [{'History': 'Your history is empty'}],
         contents: [],
 		url: '',
 		method: '',
@@ -99,46 +99,6 @@ class ContentContainer extends Component {
         );
 		}
     }
-
-		// render() {
-		// 	const { loading, contents, url, inputField, methodList } = this.state;
-		// 	if(loading) {
-		// 		return <h1>Loading...</h1>
-		// 	} else if (methodList === undefined) {
-		// 		return (
-		// 			<>
-		// 		<MethodControls
-		// 		url = {url}
-		// 		inputField = {inputField}
-		// 		methodList = {methodList} 
-		// 		onUrlInput={this.handleUrlInput}
-		// 		onRadioInput={this.handleRadioInput}
-		// 		onObjectInput={this.handleInputField}
-		// 		onSubmit={this.handleSubmit, this.handleHistory} />
-		// 		<section>				
-		// 			<Content contents={contents}/>
-		// 		</section>
-        //   </>
-		// 		)
-
-		// 	} else 
-		// 		return (<>
-		// 			<MethodControls
-		// 			url = {url}
-		// 			inputField = {inputField}
-		// 			methodList = {methodList} 
-		// 			onUrlInput={this.handleUrlInput}
-		// 			onRadioInput={this.handleRadioInput}
-		// 			onObjectInput={this.handleInputField}
-		// 			onSubmit={this.handleSubmit, this.handleHistory} />
-		// 			<section>
-		// 				{/* <MethodList	/>			 */}
-		// 				<Content contents={contents}/>
-		// 			</section>
-		// 	  </>
-		// 	  )
-		// 	}
-		// }
 		
 
 

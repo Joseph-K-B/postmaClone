@@ -5,16 +5,22 @@ import Method from "./Method";
 export default function  MethodList({ methodList }) {
     if(methodList === undefined) {
         return <p>Waiting for request</p>
-    } else {
-        <h2>History</h2>
+    } else {        
         const methods = methodList.map(({method, url}) => {
-            <li
-            onChange={onMethodInput}>
-                <Method 
-                method={method}
-                url={url}
-                />
-            </li>
+            return (
+            <>
+                <h2>History</h2>
+                <li>
+                    <Method
+                    method={method}
+                    url={url} />
+                </li>
+            </>
+            )
         })
+
     return <ul aria-label='method-list'>{methods}</ul>}
     }
+
+
+    
