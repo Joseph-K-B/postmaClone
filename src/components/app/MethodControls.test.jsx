@@ -7,6 +7,6 @@ describe('renders form/controls', () => {
         render(
             <MethodControls />
         );
-        expect(MethodControls).toMatchSnapshot()
-    })
-})
+        expect(MethodControls).toMatchSnapshot();
+    });
+});
