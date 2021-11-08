@@ -1,5 +1,5 @@
 import React from 'react';
-// import css from '../../styles/method-container.css'
+import css from './styles/controlStyles.css'
 
 function MethodControls({
     url,

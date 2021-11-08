@@ -16,7 +16,6 @@ class ContentContainer extends Component {
     };
 
  		componentDidMount() {
-        // const content = await getMethod();
         this.setState({loading: false })
     };
 
@@ -32,9 +31,9 @@ class ContentContainer extends Component {
 			this.setState({ inputField: e.target.value });
 		}
 
-		// handleHistory = () => {
-		// 	const { method, url, methodList } = this.state
-		// 	this.setState({ methodList: methodList.push({method, url}) })
+		// handleHistory = (e) => {
+		// 	// const { method, url, methodList } = this.state
+		// 	this.setState({ methodList: e.target.methodList })
 		// }
 
 		handleSubmit = async (e) => {
@@ -93,7 +92,7 @@ class ContentContainer extends Component {
 				onUrlInput={this.handleUrlInput}
 				onRadioInput={this.handleRadioInput}
 				onObjectInput={this.handleInputField}
-				onSubmit={this.handleHistory}
+				// onSubmit={this.handleHistory}
 				onSubmit={this.handleSubmit} />
 				<section>				
 					<MethodList />  

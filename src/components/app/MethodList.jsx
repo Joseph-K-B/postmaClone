@@ -1,11 +1,7 @@
 import React from "react";
 import Method from "./Method";
 
-
-export default function  MethodList() {
-    // if(methodList === undefined) {
-    //     return <p>Waiting for request</p>
-    // } else {
+const MethodList = () => {
         const local = localStorage.getItem('LOCAL');
         const arr = JSON.parse(local)
         const methods = arr.map(({method, url}) => {
@@ -22,7 +18,8 @@ export default function  MethodList() {
         })
 
     return <ul aria-label='method-list'>{methods}</ul>}
-    // }
+
+    export default MethodList
 
 
     

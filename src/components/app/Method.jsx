@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const Method = ({ method, url }) => {
+const Method = ({ method, url }) => {
     return (
         <>
-            <h3>{method}</h3>
-            <p>{url}</p>
+            <h3 key={method}>{method}</h3>
+            <p key={url}>{url}</p>
         </>
     )
 }

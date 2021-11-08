@@ -3,26 +3,27 @@ html
     background-color: #77AA88;
 }
 
-
 form
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     justify-items: center;
-    border: 10%;
-    padding: 1%;
+    border: 3px, solid, black;
+    padding: 1.5%;
 }
 
 header
 {
     height: 4rem;
     background-color: slategray;
+    width: 200%;
+    /* height: 200%; */
 }
 
 figure
 {
-    width: 40rem;
+    width: 90%;
 }
 
 section

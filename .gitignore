@@ -1,3 +1,5 @@
 node_modules
 .env
 dist
+MethodControls.test.jsx
+MethodList.test.jsx
