@@ -41,6 +41,15 @@ function MethodControls({
             <label htmlFor='POST'>POST</label>
             <input 
                 type='radio' 
+                id='PUT' 
+                name='PUT' 
+                value='PUT' 
+                onChange={onRadioInput}
+                className='radio-input'
+                />
+            <label htmlFor='PUT'>PUT</label>
+            <input 
+                type='radio' 
                 id='PATCH' 
                 name='PATCH' 
                 value='PATCH' 
