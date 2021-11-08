@@ -7,9 +7,10 @@ const MethodList = () => {
         const methods = arr.map(({method, url}) => {
             return (
             <>
-                <h2>History</h2>
+                <h2 key='title'>History</h2>
                 <li>
                     <Method
+                    key='item'
                     method={method}
                     url={url} />
                 </li>
