@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders header with h1 displays header and styling upon component mounting 1`] = `[Function]`;
