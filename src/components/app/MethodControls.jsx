@@ -11,15 +11,27 @@ function MethodControls({
 }) {
     return(
         <form onSubmit={onSubmit} className='form'>
-            <label htmlFor='url'>Make an API call</label>
+            <button aria-label='make-request'>Go</button>
             <input 
                 id='url'
                 name='url'
+                placeholder='https://'
                 type='text'
                 value={url}
                 onChange={onUrlInput}
                 className='url-input'
             />
+            <label htmlFor='url'></label>
+            <label htmlFor= 'object'></label>
+            <textarea
+                id='object'
+                name='object'
+                type='text'
+                value={inputField}
+                onChange={onObjectInput}
+                className='object-input'
+                placeholder='Double quotes for keys & values'
+            ></textarea>
             <div className='radio-div'>
             <input 
                 type='radio' 
@@ -67,17 +79,7 @@ function MethodControls({
             />
             <label htmlFor='DELETE'>DELETE</label>
             </div>
-            <button aria-label='make-request'>Go</button>
-            <label htmlFor= 'object'></label>
-            <textarea
-                id='object'
-                name='object'
-                type='text'
-                value={inputField}
-                onChange={onObjectInput}
-                className='object-input'
-                placeholder='Double quotes for keys & values'
-            ></textarea>
+            
         </form>
     )
 }
