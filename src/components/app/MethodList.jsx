@@ -1,13 +1,13 @@
 import React from "react";
 import Method from "./Method";
 
-const MethodList = () => {
-        const local = localStorage.getItem('LOCAL');
-        const arr = JSON.parse(local)
+const MethodList = ({ arr }) => {
+        // const local = localStorage.getItem('LOCAL');
+        // const arr = JSON.parse(local)
+        console.log('ARR', arr)
         const methods = arr.map(({method, url}) => {
             return (
             <>
-                <h2 key='title'>History</h2>
                 <li>
                     <Method
                     key='item'
@@ -18,7 +18,11 @@ const MethodList = () => {
             )
         })
 
-    return <ul aria-label='method-list'>{methods}</ul>}
+    return <> 
+    <h2 key='title'>History</h2>
+    <ul aria-label='method-list'>{methods}</ul>
+    </>
+}
 
     export default MethodList
 

@@ -4,6 +4,7 @@ import { getMethod, postMethod, patchMethod, deleteMethod, putMethod  } from "..
 import MethodControls from "../components/app/MethodControls";
 import css from '../styles/method-container.css';
 import MethodList from '../components/app/MethodList'
+import { arrayOf } from "prop-types";
 
 class ContentContainer extends Component {
     state = {
@@ -43,51 +44,51 @@ class ContentContainer extends Component {
 			if (method === 'GET') {
 			const contents = await getMethod(url)
 			this.setState({ 
-				methodList: methodList.push({method, url}), 
+				methodList: [...methodList, {method, url}],
 				loading: false, 
 				contents, 
 			})
-			localStorage.setItem('LOCAL', JSON.stringify(methodList))
+			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			console.log('METHODLIST', methodList)
 
 			} else if (method ==='POST') {
 				const contents = await postMethod(url, inputField)
 			this.setState({ 
-				methodList: methodList.push({method, url}), 
+				methodList: [...methodList, {method, url}], 
 				loading: false, 
 				contents, 
 			})
-			localStorage.setItem('LOCAL', JSON.stringify(methodList))
+			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			console.log('METHODLIST', methodList)
 
 			} else if (method ==='PUT') {
 				const contents = await putMethod(url, inputField)
 			this.setState({ 
-				methodList: methodList.push({method, url}), 
+				methodList: [...methodList, {method, url}], 
 				loading: false, 
 				contents, 
 			})
-			localStorage.setItem('LOCAL', JSON.stringify(methodList))
+			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			console.log('METHODLIST', methodList)
 
 			} else if (method ==='PATCH') {
 				const contents = await patchMethod(url, inputField)
 			this.setState({ 
-				methodList: methodList.push({method, url}), 
+				methodList: [...methodList, {method, url}], 
 				loading: false, 
 				contents, 
 			})
-			localStorage.setItem('LOCAL', JSON.stringify(methodList))
+			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			console.log('METHODLIST', methodList)
 
 			} else if (method ==='DELETE') {
 				const contents = await deleteMethod(url)
 			this.setState({ 
-				methodList: methodList.push({method, url}), 
+				methodList: [...methodList, {method, url}], 
 				loading: false, 
 				contents, 
 			})
-			localStorage.setItem('LOCAL', JSON.stringify(methodList))
+			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			console.log('METHODLIST', methodList)
 			}
 		};
@@ -108,8 +109,7 @@ class ContentContainer extends Component {
 				// onSubmit={this.handleHistory}
 				onSubmit={this.handleSubmit} />
 				<section>
-					{localStorage.getItem('LOCAL') && 
-					<MethodList />}									  
+					<MethodList arr = {methodList}/>									  
 					<Content contents={contents}/>
 				</section>
           </>
