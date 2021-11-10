@@ -2,9 +2,6 @@ import React from "react";
 import Method from "./Method";
 
 const MethodList = ({ arr }) => {
-        // const local = localStorage.getItem('LOCAL');
-        // const arr = JSON.parse(local)
-        console.log('ARR', arr)
         const methods = arr.map(({method, url}) => {
             return (
             <>

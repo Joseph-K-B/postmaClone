@@ -8,7 +8,7 @@ function Content({ contents }) {
         <figure>
            <h1>Response</h1> 
         <figcaption className='react-json'>
-            <ReactJson src={contents} theme='grayscale' />
+            <ReactJson src={contents} theme='monokai' />
         </figcaption>
         </figure>
     )

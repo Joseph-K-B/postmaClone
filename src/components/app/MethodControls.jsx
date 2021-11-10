@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './styles/controlStyles.css'
+import css from '../../styles/controlStyles.css'
 
 function MethodControls({
     url,
@@ -10,8 +10,57 @@ function MethodControls({
     onSubmit
 }) {
     return(
-        <form onSubmit={onSubmit} className='form'>
-            <button aria-label='make-request'>Go</button>
+        <form onSubmit={onSubmit} className={css.form}>
+                      
+             <div className={css.radio}>
+            <input 
+                type='radio' 
+                id='GET' 
+                name='GET' 
+                value='GET' 
+                onChange={onRadioInput}
+                className={css.click}
+            />
+            <label htmlFor='GET' className={css.method}>GET</label>
+            <input 
+                type='radio' 
+                id='POST' 
+                name='POST' 
+                value='POST' 
+                onChange={onRadioInput}
+                className={css.click}
+                />
+            <label htmlFor='POST' className={css.method}>POST</label>
+            <input 
+                type='radio' 
+                id='PUT' 
+                name='PUT' 
+                value='PUT' 
+                onChange={onRadioInput}
+                className={css.click}
+                />
+            <label htmlFor='PUT' className={css.method}>PUT</label>
+            <input 
+                type='radio' 
+                id='PATCH' 
+                name='PATCH' 
+                value='PATCH' 
+                onChange={onRadioInput}
+                className={css.click}
+            />
+            <label htmlFor='PATCH' className={css.method}>PATCH</label>
+            <input 
+                type='radio' 
+                id='DELETE' 
+                name='DELETE' 
+                value='DELETE'
+                onChange={onRadioInput}
+                className={css.click}
+            />
+            <label htmlFor='DELETE' className={css.method}>DELETE</label>
+            </div>
+            <div className={css.input}>
+            <label htmlFor= 'object'></label>
             <input 
                 id='url'
                 name='url'
@@ -19,10 +68,9 @@ function MethodControls({
                 type='text'
                 value={url}
                 onChange={onUrlInput}
-                className='url-input'
+                className={css.url}
             />
-            <label htmlFor='url'></label>
-            <label htmlFor= 'object'></label>
+            <label htmlFor='url'></label> 
             <textarea
                 id='object'
                 name='object'
@@ -32,54 +80,8 @@ function MethodControls({
                 className='object-input'
                 placeholder='Double quotes for keys & values'
             ></textarea>
-            <div className='radio-div'>
-            <input 
-                type='radio' 
-                id='GET' 
-                name='GET' 
-                value='GET' 
-                onChange={onRadioInput}
-                className='radio-input'
-            />
-            <label htmlFor='GET'>GET</label>
-            <input 
-                type='radio' 
-                id='POST' 
-                name='POST' 
-                value='POST' 
-                onChange={onRadioInput}
-                className='radio-input'
-                />
-            <label htmlFor='POST'>POST</label>
-            <input 
-                type='radio' 
-                id='PUT' 
-                name='PUT' 
-                value='PUT' 
-                onChange={onRadioInput}
-                className='radio-input'
-                />
-            <label htmlFor='PUT'>PUT</label>
-            <input 
-                type='radio' 
-                id='PATCH' 
-                name='PATCH' 
-                value='PATCH' 
-                onChange={onRadioInput}
-                className='radio-input'
-            />
-            <label htmlFor='PATCH'>PATCH</label>
-            <input 
-                type='radio' 
-                id='DELETE' 
-                name='DELETE' 
-                value='DELETE'
-                onChange={onRadioInput}
-                className='radio-input'
-            />
-            <label htmlFor='DELETE'>DELETE</label>
-            </div>
-            
+             <button aria-label='make-request'>Go</button>
+             </div>
         </form>
     )
 }
