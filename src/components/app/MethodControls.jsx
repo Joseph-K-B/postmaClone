@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './styles/controlStyles.css'
+import css from '../../styles/controlStyles.css'
 
 function MethodControls({
     url,
@@ -10,56 +10,67 @@ function MethodControls({
     onSubmit
 }) {
     return(
-        <form onSubmit={onSubmit} className='form'>
-            <label htmlFor='url'>Make an API call</label>
-            <input 
-                id='url'
-                name='url'
-                type='text'
-                value={url}
-                onChange={onUrlInput}
-                className='url-input'
-            />
-            <div className='radio-div'>
+        <form onSubmit={onSubmit} className={css.form}>
+                      
+             <div className={css.radio}>
             <input 
                 type='radio' 
                 id='GET' 
-                name='GET' 
+                name='method' 
                 value='GET' 
                 onChange={onRadioInput}
-                className='radio-input'
+                className={css.click}
             />
-            <label htmlFor='GET'>GET</label>
+            <label htmlFor='GET' className={css.method}>GET</label>
             <input 
                 type='radio' 
                 id='POST' 
-                name='POST' 
+                name='method' 
                 value='POST' 
                 onChange={onRadioInput}
-                className='radio-input'
+                className={css.click}
                 />
-            <label htmlFor='POST'>POST</label>
+            <label htmlFor='POST' className={css.method}>POST</label>
+            <input 
+                type='radio' 
+                id='PUT' 
+                name='method' 
+                value='PUT' 
+                onChange={onRadioInput}
+                className={css.click}
+                />
+            <label htmlFor='PUT' className={css.method}>PUT</label>
             <input 
                 type='radio' 
                 id='PATCH' 
-                name='PATCH' 
+                name='method' 
                 value='PATCH' 
                 onChange={onRadioInput}
-                className='radio-input'
+                className={css.click}
             />
-            <label htmlFor='PATCH'>PATCH</label>
+            <label htmlFor='PATCH' className={css.method}>PATCH</label>
             <input 
                 type='radio' 
                 id='DELETE' 
-                name='DELETE' 
+                name='method' 
                 value='DELETE'
                 onChange={onRadioInput}
-                className='radio-input'
+                className={css.click}
             />
-            <label htmlFor='DELETE'>DELETE</label>
+            <label htmlFor='DELETE' className={css.method}>DELETE</label>
             </div>
-            <button aria-label='make-request'>Go</button>
+            <div className={css.input}>
             <label htmlFor= 'object'></label>
+            <input 
+                id='url'
+                name='url'
+                placeholder='https://'
+                type='text'
+                value={url}
+                onChange={onUrlInput}
+                className={css.url}
+            />
+            <label htmlFor='url'></label> 
             <textarea
                 id='object'
                 name='object'
@@ -69,6 +80,8 @@ function MethodControls({
                 className='object-input'
                 placeholder='Double quotes for keys & values'
             ></textarea>
+             <button aria-label='make-request'>Go</button>
+             </div>
         </form>
     )
 }

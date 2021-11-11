@@ -1,13 +1,11 @@
 import React from "react";
 import Method from "./Method";
+import css from '../../styles/historyList.css'
 
-const MethodList = () => {
-        const local = localStorage.getItem('LOCAL');
-        const arr = JSON.parse(local)
+const MethodList = ({ arr }) => {
         const methods = arr.map(({method, url}) => {
             return (
             <>
-                <h2 key='title'>History</h2>
                 <li>
                     <Method
                     key='item'
@@ -18,7 +16,11 @@ const MethodList = () => {
             )
         })
 
-    return <ul aria-label='method-list'>{methods}</ul>}
+    return <> 
+    <h1 key='title' className={css.top}>History</h1>
+    <ul aria-label='method-list'>{methods}</ul>
+    </>
+}
 
     export default MethodList
 
