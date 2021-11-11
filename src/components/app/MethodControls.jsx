@@ -80,7 +80,7 @@ function MethodControls({
                 className='object-input'
                 placeholder='Double quotes for keys & values'
             ></textarea>
-             <button aria-label='make-request'>Go</button>
+             <button aria-label='make-request'>Request</button>
              </div>
         </form>
     )
