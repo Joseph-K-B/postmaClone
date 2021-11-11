@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Content from '../components/app/Content'
-import { getMethod, postMethod, patchMethod, deleteMethod, putMethod  } from "../services/MethodAPI";
+import { getMethod, postMethod, patchMethod, deleteMethod, putMethod, fetchMethod  } from "../services/MethodAPI";
 import MethodControls from "../components/app/MethodControls";
 import css from '../styles/method-container.css';
 import MethodList from '../components/app/MethodList'
@@ -40,15 +40,23 @@ class ContentContainer extends Component {
 			const {url, method, inputField, methodList} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
+
+			
+			// const contents = await fetchMethod(url, method, inputField)
+			// this.setState({ 
+			// 	methodList: [...methodList, {method, url}],
+			// 	loading: false, 
+			// 	contents, 
+			// })
+			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
+
 			if (method === 'GET') {
-			const contents = await getMethod(url)
+			const contents = await getMethod(url, method, inputField)
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
 				loading: false, 
 				contents, 
 			})
-			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
-
 
 			} else if (method ==='POST') {
 				const contents = await postMethod(url, inputField)
@@ -57,7 +65,7 @@ class ContentContainer extends Component {
 				loading: false, 
 				contents, 
 			})
-			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
+			localStorage.setItem('LOCAL', JSON.stringify(methodList))
 
 			} else if (method ==='PUT') {
 				const contents = await putMethod(url, inputField)
@@ -66,7 +74,7 @@ class ContentContainer extends Component {
 				loading: false, 
 				contents, 
 			})
-			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
+			localStorage.setItem('LOCAL', JSON.stringify(methodList))
 
 			} else if (method ==='PATCH') {
 				const contents = await patchMethod(url, inputField)
@@ -75,7 +83,7 @@ class ContentContainer extends Component {
 				loading: false, 
 				contents, 
 			})
-			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
+			localStorage.setItem('LOCAL', JSON.stringify(methodList))
 
 			} else if (method ==='DELETE') {
 				const contents = await deleteMethod(url)
@@ -84,7 +92,7 @@ class ContentContainer extends Component {
 				loading: false, 
 				contents, 
 			})
-			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
+			localStorage.setItem('LOCAL', JSON.stringify(methodList))
 			}
 		};
 
