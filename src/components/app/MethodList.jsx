@@ -6,7 +6,7 @@ const MethodList = ({ arr }) => {
         const methods = arr.map(({method, url}) => {
             return (
             <>
-                <li>
+                <li className={css.list}>
                     <Method
                     key='item'
                     method={method}

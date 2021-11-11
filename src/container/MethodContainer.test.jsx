@@ -1,16 +1,16 @@
-// import React from 'react';
-// import MethodContainer from './MethodContainer';
-// import { render, screen, waitFor } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+import React from 'react';
+import MethodContainer from './MethodContainer';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-// describe('should render entire content of container', () => {
-//     it('renders each presentational component within the method container', async () => {
-//         render(
-//             <MethodContainer />
-//         );
-//         expect(MethodContainer).toMatchSnapshot();
+describe('should render entire content of container', () => {
+    it('renders each presentational component within the method container', async () => {
+        render(
+            <MethodContainer />
+        );
+        expect(MethodContainer).toMatchSnapshot();
 
-        // const urlInput = await screen.findAllByLabelText('Make an API call');
+        // const urlInput = await screen.findAllByPlaceholderText('https://');
         // userEvent.type(urlInput, 'https://jsonplaceholder.typicode.com/posts/1')
 
         // const methodInput = await screen.findAllByLabelText('GET');
@@ -29,5 +29,5 @@
 
         //     expect(content).toHaveLength(1);
         // });
-//     });
-// });
+    });
+});

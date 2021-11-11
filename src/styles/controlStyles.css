@@ -97,8 +97,9 @@ button
 {
     display: flex;
     justify-content: center;
-    color: cadetblue;
-    background-color: black;
+    color: black;
+    background-color: hotpink;
+    border: black solid 0.15rem;
     border-radius: 25%;
     max-height: 2em;
     max-width: 10em;
