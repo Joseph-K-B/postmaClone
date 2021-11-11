@@ -41,7 +41,7 @@ class ContentContainer extends Component {
 			e.preventDefault();
 			this.setState({ loading: true });
 
-			
+
 			// const contents = await fetchMethod(url, method, inputField)
 			// this.setState({ 
 			// 	methodList: [...methodList, {method, url}],
@@ -58,43 +58,53 @@ class ContentContainer extends Component {
 				contents, 
 			})
 
-			} else if (method ==='POST') {
-				const contents = await postMethod(url, inputField)
+			} else {
+				const contents = await fetchMethod(url, method, inputField)
 			this.setState({ 
 				methodList: [...methodList, {method, url}], 
 				loading: false, 
 				contents, 
 			})
-			localStorage.setItem('LOCAL', JSON.stringify(methodList))
+		}
+	}
 
-			} else if (method ==='PUT') {
-				const contents = await putMethod(url, inputField)
-			this.setState({ 
-				methodList: [...methodList, {method, url}], 
-				loading: false, 
-				contents, 
-			})
-			localStorage.setItem('LOCAL', JSON.stringify(methodList))
+		// 	} else if (method ==='POST') {
+		// 		const contents = await postMethod(url, inputField)
+		// 	this.setState({ 
+		// 		methodList: [...methodList, {method, url}], 
+		// 		loading: false, 
+		// 		contents, 
+		// 	})
+		// 	localStorage.setItem('LOCAL', JSON.stringify(methodList))
 
-			} else if (method ==='PATCH') {
-				const contents = await patchMethod(url, inputField)
-			this.setState({ 
-				methodList: [...methodList, {method, url}], 
-				loading: false, 
-				contents, 
-			})
-			localStorage.setItem('LOCAL', JSON.stringify(methodList))
+		// 	} else if (method ==='PUT') {
+		// 		const contents = await putMethod(url, inputField)
+		// 	this.setState({ 
+		// 		methodList: [...methodList, {method, url}], 
+		// 		loading: false, 
+		// 		contents, 
+		// 	})
+		// 	localStorage.setItem('LOCAL', JSON.stringify(methodList))
 
-			} else if (method ==='DELETE') {
-				const contents = await deleteMethod(url)
-			this.setState({ 
-				methodList: [...methodList, {method, url}], 
-				loading: false, 
-				contents, 
-			})
-			localStorage.setItem('LOCAL', JSON.stringify(methodList))
-			}
-		};
+		// 	} else if (method ==='PATCH') {
+		// 		const contents = await patchMethod(url, inputField)
+		// 	this.setState({ 
+		// 		methodList: [...methodList, {method, url}], 
+		// 		loading: false, 
+		// 		contents, 
+		// 	})
+		// 	localStorage.setItem('LOCAL', JSON.stringify(methodList))
+
+		// 	} else if (method ==='DELETE') {
+		// 		const contents = await deleteMethod(url)
+		// 	this.setState({ 
+		// 		methodList: [...methodList, {method, url}], 
+		// 		loading: false, 
+		// 		contents, 
+		// 	})
+		// 	localStorage.setItem('LOCAL', JSON.stringify(methodList))
+		// 	}
+		// };
 
 	
     render() {
