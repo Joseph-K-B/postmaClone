@@ -43,7 +43,6 @@ class ContentContainer extends Component {
 				loading: false, 
 				contents, 
 			})
-
 			} else {
 				const contents = await fetchMethod(url, method, inputField)
 			this.setState({ 
