@@ -31,24 +31,10 @@ class ContentContainer extends Component {
 			this.setState({ inputField: e.target.value });
 		}
 
-		// handleHistory = (e) => {
-		// 	// const { method, url, methodList } = this.state
-		// 	this.setState({ methodList: e.target.methodList })
-		// }
-
 		handleSubmit = async (e) => {
 			const {url, method, inputField, methodList} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
-
-
-			// const contents = await fetchMethod(url, method, inputField)
-			// this.setState({ 
-			// 	methodList: [...methodList, {method, url}],
-			// 	loading: false, 
-			// 	contents, 
-			// })
-			// localStorage.setItem('LOCAL', JSON.stringify(methodList))
 
 			if (method === 'GET') {
 			const contents = await getMethod(url, method, inputField)
@@ -67,45 +53,6 @@ class ContentContainer extends Component {
 			})
 		}
 	}
-
-		// 	} else if (method ==='POST') {
-		// 		const contents = await postMethod(url, inputField)
-		// 	this.setState({ 
-		// 		methodList: [...methodList, {method, url}], 
-		// 		loading: false, 
-		// 		contents, 
-		// 	})
-		// 	localStorage.setItem('LOCAL', JSON.stringify(methodList))
-
-		// 	} else if (method ==='PUT') {
-		// 		const contents = await putMethod(url, inputField)
-		// 	this.setState({ 
-		// 		methodList: [...methodList, {method, url}], 
-		// 		loading: false, 
-		// 		contents, 
-		// 	})
-		// 	localStorage.setItem('LOCAL', JSON.stringify(methodList))
-
-		// 	} else if (method ==='PATCH') {
-		// 		const contents = await patchMethod(url, inputField)
-		// 	this.setState({ 
-		// 		methodList: [...methodList, {method, url}], 
-		// 		loading: false, 
-		// 		contents, 
-		// 	})
-		// 	localStorage.setItem('LOCAL', JSON.stringify(methodList))
-
-		// 	} else if (method ==='DELETE') {
-		// 		const contents = await deleteMethod(url)
-		// 	this.setState({ 
-		// 		methodList: [...methodList, {method, url}], 
-		// 		loading: false, 
-		// 		contents, 
-		// 	})
-		// 	localStorage.setItem('LOCAL', JSON.stringify(methodList))
-		// 	}
-		// };
-
 	
     render() {
         const { loading, contents, url, inputField, methodList } = this.state;
@@ -119,7 +66,6 @@ class ContentContainer extends Component {
 				onUrlInput={this.handleUrlInput}
 				onRadioInput={this.handleRadioInput}
 				onObjectInput={this.handleInputField}
-				// onSubmit={this.handleHistory}
 				onSubmit={this.handleSubmit} />
 				<section>
 					<div className={css.history}>
