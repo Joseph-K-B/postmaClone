@@ -44,7 +44,7 @@
 .method
 {
     color: cadetblue;      
-    cursor:pointer;
+    cursor: crosshair;
     position:relative;
     padding:1rem 2rem;
     background:black;
