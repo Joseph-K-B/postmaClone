@@ -25,6 +25,11 @@
     width: 100%;
 }
 
+.input[button]
+{
+    justify-content: center;
+}
+
 .url
 {
     max-width: 100%;
@@ -35,15 +40,9 @@
     padding: 0.5%;
     margin: 0.5%;
 }
-
-
-  /* body{
-    margin:0;
-    padding:0;
-  } */
   
-  .method
-    {
+.method
+{
     color: cadetblue;      
     cursor:pointer;
     position:relative;
@@ -87,18 +86,24 @@
       } 
     }
 }
-.click input[type='radio']:checked+label
+.click:checked+label
 {
   top:-0.05rem;
   left:-0.05rem;
-  border-top:0.3rem solid black;
-  border-left:0.3rem solid black;
+  border: 0.35rem solid black;
+  /* border-top: 0.5rem solid black;
+  border-left:0.3rem solid black; */
 }
 
 button
 {
+    display: flex;
+    justify-content: center;
+    color: cadetblue;
+    background-color: black;
+    border-radius: 25%;
     max-height: 2em;
-    max-width: 4em;
+    max-width: 10em;
 }
 
 .click

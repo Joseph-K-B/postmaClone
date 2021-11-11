@@ -16,7 +16,7 @@ function MethodControls({
             <input 
                 type='radio' 
                 id='GET' 
-                name='GET' 
+                name='method' 
                 value='GET' 
                 onChange={onRadioInput}
                 className={css.click}
@@ -25,7 +25,7 @@ function MethodControls({
             <input 
                 type='radio' 
                 id='POST' 
-                name='POST' 
+                name='method' 
                 value='POST' 
                 onChange={onRadioInput}
                 className={css.click}
@@ -34,7 +34,7 @@ function MethodControls({
             <input 
                 type='radio' 
                 id='PUT' 
-                name='PUT' 
+                name='method' 
                 value='PUT' 
                 onChange={onRadioInput}
                 className={css.click}
@@ -43,7 +43,7 @@ function MethodControls({
             <input 
                 type='radio' 
                 id='PATCH' 
-                name='PATCH' 
+                name='method' 
                 value='PATCH' 
                 onChange={onRadioInput}
                 className={css.click}
@@ -52,7 +52,7 @@ function MethodControls({
             <input 
                 type='radio' 
                 id='DELETE' 
-                name='DELETE' 
+                name='method' 
                 value='DELETE'
                 onChange={onRadioInput}
                 className={css.click}
