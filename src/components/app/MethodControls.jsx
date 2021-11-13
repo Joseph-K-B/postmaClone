@@ -9,6 +9,7 @@ function MethodControls({
     onRadioInput,
     onObjectInput,
     onAuthInput,
+    onHeaderInput,
     onSubmit
 }) {
     return(
@@ -79,6 +80,16 @@ function MethodControls({
                 value={auth}
                 onChange={onAuthInput}
                 className={css.auth}
+            />
+            <label htmlFor= 'header'></label>
+            <input 
+                id='header'
+                name='header'
+                placeholder='headers:'
+                type='text'
+                value={header}
+                onChange={onHeaderInput}
+                className={css.header}
             />
             <label htmlFor= 'auth'></label>
             <textarea

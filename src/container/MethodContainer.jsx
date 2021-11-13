@@ -14,6 +14,7 @@ class ContentContainer extends Component {
 		method: '',
 		inputField: '',
 		auth: '',
+		headers: '',
     };
 
  		componentDidMount() {
@@ -36,30 +37,38 @@ class ContentContainer extends Component {
 			this.setState({ auth: e.target.value });
 		}
 
+		handleHeaderInput = (e) => {
+			this.setState({ headers: e.target.value });
+		}
+
 		handleSubmit = async (e) => {
-			const {url, method, inputField, methodList} = this.state
+			const {url, method, inputField, methodList, auth, headers} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
 
 			if (method === 'GET') {
-			const contents = await getMethod(url, method, inputField)
+			const contents = await getMethod(url, method, inputField, headers, auth)
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
-				loading: false, 
+				loading: false,
+				headers: {headers}, 
+				auth: {auth},
 				contents, 
 			})
 			} else {
-				const contents = await fetchMethod(url, method, inputField)
+				const contents = await fetchMethod(url, method, inputField, headers, auth)
 			this.setState({ 
-				methodList: [...methodList, {method, url}], 
+				methodList: [...methodList, {method, url}],
 				loading: false, 
+				headers: {headers},
+				auth: {auth}, 
 				contents, 
 			})
 		}
 	}
 	
     render() {
-        const { loading, contents, url, inputField, methodList } = this.state;
+        const { loading, contents, url, inputField, methodList, auth, headers } = this.state;
         if(loading) return <h1>Loading...</h1>		
 			return (
 			<>
@@ -67,10 +76,13 @@ class ContentContainer extends Component {
 				url = {url}
 				inputField = {inputField}
 				methodList = {methodList} 
+				auth = {auth}
+				headers = {headers}
 				onUrlInput= {this.handleUrlInput}
 				onRadioInput= {this.handleRadioInput}
 				onObjectInput= {this.handleInputField}
 				onAuthInput= {this.handleAuthInput}
+				onHeaderInput= {this.handleHeaderInput}
 				onSubmit= {this.handleSubmit} 
 				/>
 				<section>
