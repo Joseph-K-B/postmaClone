@@ -6,6 +6,7 @@ export const getMethod = async (url) => {
 };
 
 export const fetchMethod = async ( url, method, inputField ) => {
+   console.log('FETCH', url, method, inputField)
     const res = await fetch(url, {
         method: method,
         body: inputField,

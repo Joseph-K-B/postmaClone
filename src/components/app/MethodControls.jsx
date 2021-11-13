@@ -3,15 +3,16 @@ import css from '../../styles/controlStyles.css'
 
 function MethodControls({
     url,
+    auth,
     inputField,
     onUrlInput,
     onRadioInput,
     onObjectInput,
+    onAuthInput,
     onSubmit
 }) {
     return(
-        <form onSubmit={onSubmit} className={css.form}>
-                      
+        <form onSubmit={onSubmit} className={css.form}>                      
              <div className={css.radio}>
             <input 
                 type='radio' 
@@ -60,7 +61,6 @@ function MethodControls({
             <label htmlFor='DELETE' className={css.method}>DELETE</label>
             </div>
             <div className={css.input}>
-            <label htmlFor= 'object'></label>
             <input 
                 id='url'
                 name='url'
@@ -71,6 +71,16 @@ function MethodControls({
                 className={css.url}
             />
             <label htmlFor='url'></label> 
+            <input 
+                id='auth'
+                name='auth'
+                placeholder='login'
+                type='text'
+                value={auth}
+                onChange={onAuthInput}
+                className={css.auth}
+            />
+            <label htmlFor= 'auth'></label>
             <textarea
                 id='object'
                 name='object'
@@ -80,6 +90,7 @@ function MethodControls({
                 className='object-input'
                 placeholder='Double quotes for keys & values'
             ></textarea>
+            <label htmlFor= 'object'></label>
              <button aria-label='make-request'>Request</button>
              </div>
         </form>

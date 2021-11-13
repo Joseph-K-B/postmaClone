@@ -13,6 +13,7 @@ class ContentContainer extends Component {
 		url: '',
 		method: '',
 		inputField: '',
+		auth: '',
     };
 
  		componentDidMount() {
@@ -29,6 +30,10 @@ class ContentContainer extends Component {
 
 		handleInputField = (e) => {
 			this.setState({ inputField: e.target.value });
+		}
+
+		handleAuthInput = (e) => {
+			this.setState({ auth: e.target.value });
 		}
 
 		handleSubmit = async (e) => {
@@ -62,10 +67,12 @@ class ContentContainer extends Component {
 				url = {url}
 				inputField = {inputField}
 				methodList = {methodList} 
-				onUrlInput={this.handleUrlInput}
-				onRadioInput={this.handleRadioInput}
-				onObjectInput={this.handleInputField}
-				onSubmit={this.handleSubmit} />
+				onUrlInput= {this.handleUrlInput}
+				onRadioInput= {this.handleRadioInput}
+				onObjectInput= {this.handleInputField}
+				onAuthInput= {this.handleAuthInput}
+				onSubmit= {this.handleSubmit} 
+				/>
 				<section>
 					<div className={css.history}>
 					<MethodList arr = {methodList}/>									  
