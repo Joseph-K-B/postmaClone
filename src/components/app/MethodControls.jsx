@@ -4,13 +4,11 @@ import css from '../../styles/controlStyles.css'
 function MethodControls({
     url,
     token,
-    contentType,
     inputField,
     onUrlInput,
     onRadioInput,
     onObjectInput,
     onTokenInput,
-    onContentTypeInput,
     onSubmit
 }) {
     return(
