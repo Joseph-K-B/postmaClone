@@ -11,7 +11,7 @@ export const fetchMethod = async ( url, method, inputField, contentType = null, 
         method: method,
         body: inputField,
         headers: {
-            'Content-type': contentType,
+            'Content-type': 'application/json',
             Authorization: token 
         },
     });

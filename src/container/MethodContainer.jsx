@@ -14,7 +14,6 @@ class ContentContainer extends Component {
 		method: '',
 		inputField: '',
 		token: '',
-		contentType: '',
     };
 
  		componentDidMount() {
@@ -37,38 +36,32 @@ class ContentContainer extends Component {
 			this.setState({ token: e.target.value });
 		};
 
-		handleContentTypeInput = (e) => {
-			this.setState({ contentType: e.target.value });
-		};
-
 		handleSubmit = async (e) => {
-			const {url, method, inputField, methodList, token, contentType} = this.state
+			const {url, method, inputField, methodList, token} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
 
 			if (method === 'GET') {
-			const contents = await getMethod(url, method, inputField, token, contentType)
+			const contents = await getMethod(url, method, inputField, token)
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
 				loading: false,
 				token: {token},
-				contentType: {contentType},
 				contents, 
 			})
 			} else {
-				const contents = await fetchMethod(url, method, inputField, token, contentType)
+				const contents = await fetchMethod(url, method, inputField, token, )
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
 				loading: false, 
 				token: {token},
-				contentType: {contentType}, 
 				contents, 
 			})
 		}
 	}
 	
     render() {
-        const { loading, contents, url, inputField, methodList, token, contentType } = this.state;
+        const { loading, contents, url, inputField, methodList, token } = this.state;
         if(loading) return <h1>Loading...</h1>		
 			return (
 			<>
@@ -77,12 +70,10 @@ class ContentContainer extends Component {
 				inputField = {inputField}
 				methodList = {methodList} 
 				token = {token}
-				contentType = {contentType}
 				onUrlInput= {this.handleUrlInput}
 				onRadioInput= {this.handleRadioInput}
 				onObjectInput= {this.handleInputField}
 				onTokenInput= {this.handleTokenInput}
-				onContentTypeInput= {this.handleContentTypeInput}
 				onSubmit= {this.handleSubmit} 
 				/>
 				<section>

@@ -83,16 +83,6 @@ function MethodControls({
                 className={css.auth}
             />
             <label htmlFor= 'token'></label>
-            <input 
-                id='content-type'
-                name='content-type'
-                placeholder='Content-Type:'
-                type='text'
-                value={contentType}
-                onChange={onContentTypeInput}
-                className={css.header}
-            />
-            <label htmlFor= 'content-type'></label>
             <textarea
                 id='object'
                 name='object'
