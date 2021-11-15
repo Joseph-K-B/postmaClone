@@ -13,9 +13,8 @@ class ContentContainer extends Component {
 		url: '',
 		method: '',
 		inputField: '',
-		username: '',
-		password: '',
-		headers: '',
+		token: '',
+		contentType: '',
     };
 
  		componentDidMount() {
@@ -34,31 +33,26 @@ class ContentContainer extends Component {
 			this.setState({ inputField: e.target.value });
 		}
 
-		handleUsernameInput = (e) => {
+		handleTokenInput = (e) => {
 			this.setState({ username: e.target.value });
 		}
 
-		handlePasswordInput = (e) => {
-			this.setState({ password: e.target.value });
-		}
-
-		handleHeaderInput = (e) => {
-			this.setState({ headers: e.target.value });
+		handleContentTypeInput = (e) => {
+			this.setState({ contentType: e.target.value });
 		}
 
 		handleSubmit = async (e) => {
-			const {url, method, inputField, methodList, username, password, headers} = this.state
+			const {url, method, inputField, methodList, token, contentType} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
 
 			if (method === 'GET') {
-			const contents = await getMethod(url, method, inputField, headers, username, password)
+			const contents = await getMethod(url, method, inputField, token,  contentType)
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
 				loading: false,
 				// headers: {headers},
-				username: {username},
-				password: {password},
+				token: {token},
 				contents, 
 			})
 			} else {
@@ -66,9 +60,8 @@ class ContentContainer extends Component {
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
 				loading: false, 
-				headers: {headers},
-				username: {username},
-				password: {password}, 
+				token: {token},
+				contentType: {contentType}, 
 				contents, 
 			})
 		}
@@ -83,9 +76,8 @@ class ContentContainer extends Component {
 				url = {url}
 				inputField = {inputField}
 				methodList = {methodList} 
-				username = {username}
-				password = {password}
-				headers = {headers}
+				token = {token}
+				contentType = {contentType}
 				onUrlInput= {this.handleUrlInput}
 				onRadioInput= {this.handleRadioInput}
 				onObjectInput= {this.handleInputField}

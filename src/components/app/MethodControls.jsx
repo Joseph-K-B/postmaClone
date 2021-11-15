@@ -3,15 +3,14 @@ import css from '../../styles/controlStyles.css'
 
 function MethodControls({
     url,
-    username,
-    password,
-    headers,
+    token,
+    contentType,
     inputField,
     onUrlInput,
     onRadioInput,
     onObjectInput,
-    onAuthInput,
-    onHeaderInput,
+    onTokenInput,
+    onContentTypeInput,
     onSubmit
 }) {
     return(
@@ -75,32 +74,22 @@ function MethodControls({
             />
             <label htmlFor='url'></label> 
             <input 
-                id='username'
-                name='username'
-                placeholder='username'
+                id='token'
+                name='token'
+                placeholder='token'
                 type='text'
-                value={username}
-                onChange={onAuthInput}
+                value={token}
+                onChange={onTokenInput}
                 className={css.auth}
             />
-            <label htmlFor= 'username'></label>
-            <input 
-                id='password'
-                name='password'
-                placeholder='password'
-                type='text'
-                value={password}
-                onChange={onAuthInput}
-                className={css.auth}
-            />
-            <label htmlFor= 'password'></label>
+            <label htmlFor= 'token'></label>
             <input 
                 id='header'
                 name='header'
                 placeholder='headers:'
                 type='text'
-                value={headers}
-                onChange={onHeaderInput}
+                value={contentType}
+                onChange={onContentTypeInput}
                 className={css.header}
             />
             <label htmlFor= 'header'></label>
@@ -120,4 +109,4 @@ function MethodControls({
     )
 }
 
-export default MethodControls
+export default MethodControls;
