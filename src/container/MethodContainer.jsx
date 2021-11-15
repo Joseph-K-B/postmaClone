@@ -27,19 +27,19 @@ class ContentContainer extends Component {
 
 		handleRadioInput = (e) => {
 			this.setState({ method: e.target.value });
-		}
+		};
 
 		handleInputField = (e) => {
 			this.setState({ inputField: e.target.value });
-		}
+		};
 
 		handleTokenInput = (e) => {
-			this.setState({ username: e.target.value });
-		}
+			this.setState({ token: e.target.value });
+		};
 
 		handleContentTypeInput = (e) => {
 			this.setState({ contentType: e.target.value });
-		}
+		};
 
 		handleSubmit = async (e) => {
 			const {url, method, inputField, methodList, token, contentType} = this.state
@@ -47,16 +47,16 @@ class ContentContainer extends Component {
 			this.setState({ loading: true });
 
 			if (method === 'GET') {
-			const contents = await getMethod(url, method, inputField, token,  contentType)
+			const contents = await getMethod(url, method, inputField, token, contentType)
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
 				loading: false,
-				// headers: {headers},
 				token: {token},
+				contentType: {contentType},
 				contents, 
 			})
 			} else {
-				const contents = await fetchMethod(url, method, inputField, headers, username, password)
+				const contents = await fetchMethod(url, method, inputField, token, contentType)
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
 				loading: false, 
@@ -68,7 +68,7 @@ class ContentContainer extends Component {
 	}
 	
     render() {
-        const { loading, contents, url, inputField, methodList, username, password, headers } = this.state;
+        const { loading, contents, url, inputField, methodList, token, contentType } = this.state;
         if(loading) return <h1>Loading...</h1>		
 			return (
 			<>
@@ -81,9 +81,8 @@ class ContentContainer extends Component {
 				onUrlInput= {this.handleUrlInput}
 				onRadioInput= {this.handleRadioInput}
 				onObjectInput= {this.handleInputField}
-				onUsernameInput= {this.handleUsernameInput}
-				onPasswordInput= {this.handlePasswordInput}
-				onHeaderInput= {this.handleHeaderInput}
+				onTokenInput= {this.handleTokenInput}
+				onContentTypeInput= {this.handleContentTypeInput}
 				onSubmit= {this.handleSubmit} 
 				/>
 				<section>

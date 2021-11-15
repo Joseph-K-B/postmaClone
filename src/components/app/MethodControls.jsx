@@ -76,7 +76,7 @@ function MethodControls({
             <input 
                 id='token'
                 name='token'
-                placeholder='token'
+                placeholder='Token:'
                 type='text'
                 value={token}
                 onChange={onTokenInput}
@@ -84,15 +84,15 @@ function MethodControls({
             />
             <label htmlFor= 'token'></label>
             <input 
-                id='header'
-                name='header'
-                placeholder='headers:'
+                id='content-type'
+                name='content-type'
+                placeholder='Content-Type:'
                 type='text'
                 value={contentType}
                 onChange={onContentTypeInput}
                 className={css.header}
             />
-            <label htmlFor= 'header'></label>
+            <label htmlFor= 'content-type'></label>
             <textarea
                 id='object'
                 name='object'
