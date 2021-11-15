@@ -3,7 +3,9 @@ import css from '../../styles/controlStyles.css'
 
 function MethodControls({
     url,
-    auth,
+    username,
+    password,
+    headers,
     inputField,
     onUrlInput,
     onRadioInput,
@@ -73,25 +75,35 @@ function MethodControls({
             />
             <label htmlFor='url'></label> 
             <input 
-                id='auth'
-                name='auth'
-                placeholder='login'
+                id='username'
+                name='username'
+                placeholder='username'
                 type='text'
-                value={auth}
+                value={username}
                 onChange={onAuthInput}
                 className={css.auth}
             />
-            <label htmlFor= 'header'></label>
+            <label htmlFor= 'username'></label>
+            <input 
+                id='password'
+                name='password'
+                placeholder='password'
+                type='text'
+                value={password}
+                onChange={onAuthInput}
+                className={css.auth}
+            />
+            <label htmlFor= 'password'></label>
             <input 
                 id='header'
                 name='header'
                 placeholder='headers:'
                 type='text'
-                value={header}
+                value={headers}
                 onChange={onHeaderInput}
                 className={css.header}
             />
-            <label htmlFor= 'auth'></label>
+            <label htmlFor= 'header'></label>
             <textarea
                 id='object'
                 name='object'

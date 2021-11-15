@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Content from '../components/app/Content'
-import { getMethod, postMethod, patchMethod, deleteMethod, putMethod, fetchMethod  } from "../services/MethodAPI";
+import { getMethod, fetchMethod  } from "../services/MethodAPI";
 import MethodControls from "../components/app/MethodControls";
 import css from '../styles/method-container.css';
 import MethodList from '../components/app/MethodList'
@@ -13,7 +13,8 @@ class ContentContainer extends Component {
 		url: '',
 		method: '',
 		inputField: '',
-		auth: '',
+		username: '',
+		password: '',
 		headers: '',
     };
 
@@ -33,8 +34,12 @@ class ContentContainer extends Component {
 			this.setState({ inputField: e.target.value });
 		}
 
-		handleAuthInput = (e) => {
-			this.setState({ auth: e.target.value });
+		handleUsernameInput = (e) => {
+			this.setState({ username: e.target.value });
+		}
+
+		handlePasswordInput = (e) => {
+			this.setState({ password: e.target.value });
 		}
 
 		handleHeaderInput = (e) => {
@@ -42,33 +47,35 @@ class ContentContainer extends Component {
 		}
 
 		handleSubmit = async (e) => {
-			const {url, method, inputField, methodList, auth, headers} = this.state
+			const {url, method, inputField, methodList, username, password, headers} = this.state
 			e.preventDefault();
 			this.setState({ loading: true });
 
 			if (method === 'GET') {
-			const contents = await getMethod(url, method, inputField, headers, auth)
+			const contents = await getMethod(url, method, inputField, headers, username, password)
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
 				loading: false,
-				headers: {headers}, 
-				auth: {auth},
+				// headers: {headers},
+				username: {username},
+				password: {password},
 				contents, 
 			})
 			} else {
-				const contents = await fetchMethod(url, method, inputField, headers, auth)
+				const contents = await fetchMethod(url, method, inputField, headers, username, password)
 			this.setState({ 
 				methodList: [...methodList, {method, url}],
 				loading: false, 
 				headers: {headers},
-				auth: {auth}, 
+				username: {username},
+				password: {password}, 
 				contents, 
 			})
 		}
 	}
 	
     render() {
-        const { loading, contents, url, inputField, methodList, auth, headers } = this.state;
+        const { loading, contents, url, inputField, methodList, username, password, headers } = this.state;
         if(loading) return <h1>Loading...</h1>		
 			return (
 			<>
@@ -76,12 +83,14 @@ class ContentContainer extends Component {
 				url = {url}
 				inputField = {inputField}
 				methodList = {methodList} 
-				auth = {auth}
+				username = {username}
+				password = {password}
 				headers = {headers}
 				onUrlInput= {this.handleUrlInput}
 				onRadioInput= {this.handleRadioInput}
 				onObjectInput= {this.handleInputField}
-				onAuthInput= {this.handleAuthInput}
+				onUsernameInput= {this.handleUsernameInput}
+				onPasswordInput= {this.handlePasswordInput}
 				onHeaderInput= {this.handleHeaderInput}
 				onSubmit= {this.handleSubmit} 
 				/>
