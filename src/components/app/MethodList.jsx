@@ -18,7 +18,7 @@ const MethodList = ({ arr }) => {
 
     return <> 
     <h1 key='title' className={css.top}>History</h1>
-    <ul aria-label='method-list'>{methods}</ul>
+    <ul aria-label='method-list' className={css.history}>{methods}</ul>
     </>
 }
 

@@ -3,15 +3,19 @@ import css from '../../styles/controlStyles.css'
 
 function MethodControls({
     url,
+    username,
+    password,
+    headers,
     inputField,
     onUrlInput,
     onRadioInput,
     onObjectInput,
+    onAuthInput,
+    onHeaderInput,
     onSubmit
 }) {
     return(
-        <form onSubmit={onSubmit} className={css.form}>
-                      
+        <form onSubmit={onSubmit} className={css.form}>                      
              <div className={css.radio}>
             <input 
                 type='radio' 
@@ -60,7 +64,6 @@ function MethodControls({
             <label htmlFor='DELETE' className={css.method}>DELETE</label>
             </div>
             <div className={css.input}>
-            <label htmlFor= 'object'></label>
             <input 
                 id='url'
                 name='url'
@@ -71,6 +74,36 @@ function MethodControls({
                 className={css.url}
             />
             <label htmlFor='url'></label> 
+            <input 
+                id='username'
+                name='username'
+                placeholder='username'
+                type='text'
+                value={username}
+                onChange={onAuthInput}
+                className={css.auth}
+            />
+            <label htmlFor= 'username'></label>
+            <input 
+                id='password'
+                name='password'
+                placeholder='password'
+                type='text'
+                value={password}
+                onChange={onAuthInput}
+                className={css.auth}
+            />
+            <label htmlFor= 'password'></label>
+            <input 
+                id='header'
+                name='header'
+                placeholder='headers:'
+                type='text'
+                value={headers}
+                onChange={onHeaderInput}
+                className={css.header}
+            />
+            <label htmlFor= 'header'></label>
             <textarea
                 id='object'
                 name='object'
@@ -80,6 +113,7 @@ function MethodControls({
                 className='object-input'
                 placeholder='Double quotes for keys & values'
             ></textarea>
+            <label htmlFor= 'object'></label>
              <button aria-label='make-request'>Request</button>
              </div>
         </form>
