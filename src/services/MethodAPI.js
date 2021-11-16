@@ -5,7 +5,7 @@ export const getMethod = async (url) => {
     return content;
 };
 
-export const fetchMethod = async ( url, method, inputField, contentType = null, token = null ) => {
+export const fetchMethod = async ( url, method, inputField, token = null ) => {
    console.log('FETCH', url, method, inputField)
     const res = await fetch(url, {
         method: method,
@@ -14,8 +14,7 @@ export const fetchMethod = async ( url, method, inputField, contentType = null, 
         ? {
             'Content-type': 'application/json',
             Authorization: token 
-        } :
-        {
+        } : {
             'Content-type': 'application/json',
         }
     });
