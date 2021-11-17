@@ -70,11 +70,11 @@ class ContentContainer extends Component {
 				inputField = {inputField}
 				methodList = {methodList} 
 				token = {token}
-				onUrlInput= {this.handleUrlInput}
-				onRadioInput= {this.handleRadioInput}
-				onObjectInput= {this.handleInputField}
-				onTokenInput= {this.handleTokenInput}
-				onSubmit= {this.handleSubmit} 
+				onUrlInput = {this.handleUrlInput}
+				onRadioInput = {this.handleRadioInput}
+				onObjectInput = {this.handleInputField}
+				onTokenInput = {this.handleTokenInput}
+				onSubmit = {this.handleSubmit} 
 				/>
 				<section>
 					<div className={css.history}>
